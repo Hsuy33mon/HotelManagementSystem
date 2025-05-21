@@ -37,7 +37,7 @@ public class Promotion {
     @Column
     private int usageLimit;
     @Column
-    private int timeUsed;
+    private int timesUsed;
 
     @ManyToMany(mappedBy = "promotions")
     private Set<User> users = new HashSet<>();
