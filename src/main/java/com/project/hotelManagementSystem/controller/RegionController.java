@@ -33,9 +33,9 @@ public class RegionController {
         return "redirect:/regions";
     }
 
-    @GetMapping("/edit")
-    public String showUpdateForm(Long id, Model model){
-        model.addAttribute("region",regionService.findById(id));
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable Long id, Model model){
+        model.addAttribute("region",regionService.findRegionById(id));
         return "regions/edit";
     }
 

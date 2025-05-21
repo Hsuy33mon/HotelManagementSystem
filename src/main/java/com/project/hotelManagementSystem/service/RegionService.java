@@ -39,7 +39,7 @@ public class RegionService {
         }
     }
 
-    public Optional<Region> findById(Long id) {
+    public Optional<Region> findRegionById(Long id) {
         Optional<Region> regionOp = regionRepository.findById(id);
         return regionOp;
     }
