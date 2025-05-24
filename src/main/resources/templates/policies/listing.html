@@ -6,7 +6,7 @@
 </head>
 <body class="container mt-4">
 <h2>Hotels</h2>
-<a class="btn btn-primary mb-3" th:href="@{/policies/new}">Add Policy</a>
+
 <table class="table table-bordered">
   <thead>
   <tr><th>ID</th><th>Title</th><th>Description</th><th>Applicable To</th></tr>
@@ -24,5 +24,8 @@
   </tr>
   </tbody>
 </table>
+<div class="text-center my-3">
+  <a class="btn btn-primary btn-sm" th:href="@{/policies/new}">Add Policy</a>
+</div>
 </body>
 </html>

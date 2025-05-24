@@ -18,11 +18,6 @@
         <div class="text-danger" th:if="${#fields.hasErrors('isAvailable')}" th:errors="*{isAvailable}"></div>
     </div>
     <div class="mb-3">
-        <label class="form-label"> Floor</label>
-        <input type="date" th:field="*{floor}" class="form-control"/>
-        <div class="text-danger" th:if="${#fields.hasErrors('floor')}" th:errors="*{floor}"></div>
-    </div>
-    <div class="mb-3">
         <label class="form-label">Description</label>
         <input type="text" th:field="*{description}" class="form-control"/>
         <div class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
@@ -38,7 +33,7 @@
         <div class="text-danger" th:if="${#fields.hasErrors('maxCapacity')}" th:errors="*{maxCapacity}"></div>
     </div>
     <button type="submit" class="btn btn-primary">Update Room</button>
-    <a class="btn btn-secondary" th:href="@{/propertyDescriptions}">Cancel</a>
+    <a class="btn btn-secondary" th:href="@{/rooms}">Cancel</a>
 </form>
 </body>
 </html>

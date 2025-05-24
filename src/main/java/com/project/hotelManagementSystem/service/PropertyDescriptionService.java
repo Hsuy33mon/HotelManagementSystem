@@ -23,9 +23,13 @@ public class PropertyDescriptionService {
         if(optionalPropertyDescription.isPresent()) {
             PropertyDescription updatedPropertyDescription = optionalPropertyDescription.get();
             updatedPropertyDescription.setDescription(propertyDescription.getDescription());
-            updatedPropertyDescription.setOpeningDate(propertyDescription.getOpeningDate());
-            updatedPropertyDescription.setRenovationDate(propertyDescription.getRenovationDate());
             updatedPropertyDescription.setNumberOfRooms(propertyDescription.getNumberOfRooms());
+
+            if(propertyDescription.getOpeningDate() != null || propertyDescription.getRenovationDate() != null) {
+                updatedPropertyDescription.setOpeningDate(propertyDescription.getOpeningDate());
+                updatedPropertyDescription.setRenovationDate(propertyDescription.getRenovationDate());
+            }
+
             return this.propertyDescriptionRepository.save(updatedPropertyDescription);
         }
         return null;

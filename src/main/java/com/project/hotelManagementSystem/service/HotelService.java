@@ -28,6 +28,8 @@ public class HotelService {
             updatedHotel.setDescription(hotel.getDescription());
             updatedHotel.setRating(hotel.getRating());
             updatedHotel.setHotelType(hotel.getHotelType());
+            updatedHotel.setAddress(hotel.getAddress());
+            updatedHotel.setPropertyDescription(hotel.getPropertyDescription());
             return this.hotelRepository.save(updatedHotel);
         }
         return null;

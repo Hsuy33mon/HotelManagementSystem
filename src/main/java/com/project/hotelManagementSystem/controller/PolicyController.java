@@ -50,4 +50,6 @@ public class PolicyController {
         policyService.deletePolicy(id);
         return "redirect:/policies";
     }
+
+
 }

@@ -42,4 +42,9 @@ public class Promotion {
     @ManyToMany(mappedBy = "promotions")
     private Set<User> users = new HashSet<>();
 
+    @ManyToMany(mappedBy = "promotions")
+    private Set<Room> rooms = new HashSet<>();
+
+    @ManyToMany(mappedBy = "promotions")
+    private Set<Hotel> hotels = new HashSet<>();
 }

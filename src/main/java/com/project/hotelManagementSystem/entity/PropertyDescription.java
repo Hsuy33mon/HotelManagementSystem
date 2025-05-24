@@ -27,4 +27,9 @@ public class PropertyDescription {
 
     @OneToOne(mappedBy = "propertyDescription")
     private Hotel hotel;
+
+    @Override
+    public String toString() {
+        return description ;
+    }
 }

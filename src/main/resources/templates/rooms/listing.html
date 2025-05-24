@@ -6,7 +6,6 @@
 </head>
 <body class="container mt-4">
 <h2>Rooms</h2>
-<a class="btn btn-primary mb-3" th:href="@{/rooms/new}">Add Room</a>
 <table class="table table-bordered">
   <thead>
   <tr><th>ID</th><th>Price</th><th>Is Available</th><th>Floor</th><th>Description</th><th>Room Type</th><th>Max Capacity</th></tr>
@@ -27,5 +26,8 @@
   </tr>
   </tbody>
 </table>
+<div class="text-center my-3">
+  <a class="btn btn-primary btn-sm" th:href="@{/rooms/new}">Add Room</a>
+</div>
 </body>
 </html>

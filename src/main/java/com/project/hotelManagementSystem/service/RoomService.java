@@ -24,7 +24,6 @@ public class RoomService {
             Room updatedRoom = roomOp.get();
             updatedRoom.setPrice(room.getPrice());
             updatedRoom.setAvailable(room.isAvailable());
-            updatedRoom.setFloor(room.getFloor());
             updatedRoom.setRoomType(room.getRoomType());
             updatedRoom.setMaxCapacity(room.getMaxCapacity());
             return roomRepository.save(updatedRoom);
@@ -39,8 +38,8 @@ public class RoomService {
         }
     }
 
-    public Optional<Room> findRoomById(Long id) {
-        return roomRepository.findById(id);
+    public Room findRoomById(Long id) {
+        return roomRepository.findById(id).orElse(null);
     }
 
     public List<Room> findAllRooms() {

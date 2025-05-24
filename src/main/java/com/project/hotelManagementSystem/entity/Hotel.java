@@ -1,4 +1,5 @@
 package com.project.hotelManagementSystem.entity;
+
 import com.project.hotelManagementSystem.converter.HotelTypeConverter;
 import com.project.hotelManagementSystem.entity.constants.HotelType;
 import jakarta.persistence.*;
@@ -17,6 +18,7 @@ import java.util.Set;
 @Entity
 @Table(name = "hotels")
 public class Hotel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,31 +42,35 @@ public class Hotel {
     @Convert(converter = HotelTypeConverter.class)
     private HotelType hotelType;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "propertyDescription_id")
     private PropertyDescription propertyDescription;
 
     @ManyToMany
     @JoinTable(name = "hotel_policy",
-    joinColumns = @JoinColumn(name = "hotel_id"),
-    inverseJoinColumns = @JoinColumn(name = "policy_id"))
+            joinColumns = @JoinColumn(name = "hotel_id"),
+            inverseJoinColumns = @JoinColumn(name = "policy_id"))
     private Set<Policy> policies = new HashSet<>();
 
-    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
-    private List<Room> rooms= new ArrayList<>();
+    @OneToMany(mappedBy = "hotel" ,cascade = CascadeType.ALL)
+    private List<Room> rooms = new ArrayList<>();
 
-    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hotel",cascade = CascadeType.ALL)
     private List<Booking> bookings = new ArrayList<>();
 
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "hotel",cascade = CascadeType.ALL)
-    private List<Invoice> invoices;
+    private List<Invoice> invoices = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "hotel_promotion",
+            joinColumns = @JoinColumn(name = "hotel_id"),
+            inverseJoinColumns = @JoinColumn(name = "promotion_id"))
+    private Set<Promotion> promotions = new HashSet<>();
 }
-
-

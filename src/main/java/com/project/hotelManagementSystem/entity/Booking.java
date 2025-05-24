@@ -43,9 +43,11 @@ public class Booking {
     @Column
     private double tax;
     @Column
-    private double amount;
+    private double roomPrice;
     @Column
-    private double total;
+    private double totalPrice;
+    @Column
+    private double discountPrice;
     @Column(name = "currency_type")
     @Convert(converter = CurrencyTypeConverter.class)
     private CurrencyType currencyType;

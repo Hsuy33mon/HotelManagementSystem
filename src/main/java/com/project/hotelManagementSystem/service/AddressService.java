@@ -4,7 +4,7 @@ package com.project.hotelManagementSystem.service;
 import com.project.hotelManagementSystem.entity.Address;
 import com.project.hotelManagementSystem.repository.AddressRepository;
 import lombok.AllArgsConstructor;
-import org.apache.commons.math3.analysis.function.Add;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,8 +29,8 @@ public class AddressService {
             updatedAddress.setLongitude(address.getLongitude());
             updatedAddress.setZipCode(address.getZipCode());
             updatedAddress.setCity(address.getCity());
-            updatedAddress.setHotel(address.getHotel());
-            return addressRepository.save(updatedAddress);
+            address = this.addressRepository.save(updatedAddress);
+            return address;
         }
 
         return null;
@@ -43,9 +43,9 @@ public class AddressService {
         }
     }
 
-    public Optional<Address> findAddressById(Long id) {
+    public Address findAddressById(Long id) {
         Optional<Address> addressOp = addressRepository.findById(id);
-        return addressOp;
+        return addressOp.orElse(null);
 
     }
 

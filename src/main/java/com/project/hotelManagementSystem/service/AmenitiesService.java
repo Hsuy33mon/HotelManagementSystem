@@ -39,9 +39,9 @@ public class AmenitiesService {
         }
     }
 
-    public Optional<Amenities> findAmenitiesById(Long id) {
+    public Amenities findAmenitiesById(Long id) {
         Optional<Amenities> amenitiesOp = this.amenitiesRepository.findById(id);
-        return amenitiesOp;
+        return amenitiesOp.orElse(null);
     }
 
     public List<Amenities> findAllAmenities() {

@@ -20,8 +20,6 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private double amount;
-    @Column
     private String payment_method;
     @Column
     private LocalDateTime payment_date;
